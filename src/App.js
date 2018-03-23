@@ -17,14 +17,13 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.state.newTodoDescription) { return; }
+    if ( !this.state.newTodoDescription.trim() ) { return }
     const newTodo = { description: this.state.newTodoDescription, isCompleted: false };
     this.setState({ todos: [...this.state.todos, newTodo ], newTodoDescription: "" });
   }
 
   handleChange(e) {
     this.setState({ newTodoDescription: e.target.value });
-    console.log(this.state.newTodoDescription);
   }
 
   toggleComplete(index) {
